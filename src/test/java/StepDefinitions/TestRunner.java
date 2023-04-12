@@ -8,13 +8,13 @@ import io.cucumber.junit.CucumberOptions;
 @RunWith(Cucumber.class)
 @CucumberOptions(
 		features="src/test/resources/Features", // path of feature file
-		glue={"StepDefinitions"}, // path of step definition file
+		glue={"StepDefinitions", "Login", "Chapter"}, // path of step definition file
 		
 		monochrome = true,
 		plugin = {"pretty", "html:target/reports/cucumber.html", 
 			    "json:target/reports/cucumber.json",
 			    "junit:target/reports/cucumber.xml"},
-		tags = "@SmokeTest") 
+		tags = "@SmokeTest or @ValidScenario") 
 
 public class TestRunner {
 
