@@ -18,8 +18,9 @@ import io.cucumber.junit.CucumberOptions;
 		plugin = {"pretty", "html:target/reports/cucumber.html", 
 			    "json:target/reports/cucumber.json",
 			    "junit:target/reports/cucumber.xml"},
-		tags = //"@SmokeTest or @ValidScenario or " +
-			   "@InvalidScenario"
+		tags = "@SmokeTest or " + 
+				"@ValidScenario or " + 
+			    "@InvalidScenario"
 		) 
 
 public class TestRunner {
