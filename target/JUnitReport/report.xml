@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Cucumber" time="124.561" tests="5" skipped="0" failures="0" errors="0">
+<testcase classname="feature to test register funcionality" name="check register unsuccess because firstname unfill - Example #1.1" time="23.164">
+<system-out><![CDATA[
+Given browser is openn......................................................passed
+And user is on login pagee..................................................passed
+And click create account....................................................passed
+When user enters "[blank]" and "AAAA" and "AAAA" and "AAAA" and "AAAAAAAA"..passed
+And clicks on create button.................................................passed
+Then message required firstname.............................................passed
+]]></system-out>
+</testcase>
+<testcase classname="feature to test register funcionality" name="check register unsuccess because lastname unfill - Example #1.1" time="24.914">
+<system-out><![CDATA[
+Given browser is openn......................................................passed
+And user is on login pagee..................................................passed
+And click create account....................................................passed
+When user enters "AAAA" and "[blank]" and "AAAA" and "AAAA" and "AAAAAAAA"..passed
+And clicks on create button.................................................passed
+Then message required lastname..............................................passed
+]]></system-out>
+</testcase>
+<testcase classname="feature to test register funcionality" name="check register unsuccess because email unfill - Example #1.1" time="31.632">
+<system-out><![CDATA[
+Given browser is openn......................................................passed
+And user is on login pagee..................................................passed
+And click create account....................................................passed
+When user enters "AAAA" and "AAAA" and "[blank]" and "AAAA" and "AAAAAAAA"..passed
+And clicks on create button.................................................passed
+Then message required email.................................................passed
+]]></system-out>
+</testcase>
+<testcase classname="feature to test register funcionality" name="check register unsuccess because username unfill - Example #1.1" time="21.105">
+<system-out><![CDATA[
+Given browser is openn......................................................passed
+And user is on login pagee..................................................passed
+And click create account....................................................passed
+When user enters "AAAA" and "AAAA" and "AAAA" and "[blank]" and "AAAAAAAA"..passed
+And clicks on create button.................................................passed
+Then message required username..............................................passed
+]]></system-out>
+</testcase>
+<testcase classname="feature to test register funcionality" name="check register unsuccess because password unfill - Example #1.1" time="23.526">
+<system-out><![CDATA[
+Given browser is openn......................................................passed
+And user is on login pagee..................................................passed
+And click create account....................................................passed
+When user enters "AAAA" and "AAAA" and "AAAA" and "AAAA" and "[blank]"......passed
+And clicks on create button.................................................passed
+Then message required password..............................................passed
+]]></system-out>
+</testcase>
+</testsuite>
