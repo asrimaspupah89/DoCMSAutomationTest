@@ -1,4 +1,4 @@
-package StepDefinitions;
+package Section;
 
 import java.time.Duration;
 
