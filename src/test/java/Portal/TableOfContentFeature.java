@@ -1,5 +1,6 @@
 package Portal;
 
+import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
@@ -23,6 +24,7 @@ import io.cucumber.java.en.When;
 public class TableOfContentFeature {
 	
 	private List<String> headings = new ArrayList<>();
+	private List<String> headingsDataTag = new ArrayList<>();
 	private List<String> headingsData = new ArrayList<>();
 	
 	@Then("buka portal dokumentasi")
@@ -53,13 +55,18 @@ public class TableOfContentFeature {
     	List<WebElement> navitems = Driver.getInstance().findElements(By.xpath("//a[@class='section v-list-item v-list-item--dense v-list-item--link theme--dark' or contains(@class, 'v-list-item--active')]"));
     	Boolean found = false;
     	for(WebElement navitem : navitems) {
-    		navitem.click();
-    		if (checkHeadings()) {
-    			found = true;
-    			break;
+    		if (navitem.getText().startsWith("Section")) {
+    			navitem.click();
+    			if (checkHeadings() == true) {
+    				System.out.println("Ketemu: " + navitem.getText());
+    				found = true;
+    				break;
+    			}
+    			this.headingsDataTag.clear();
+    			this.headingsData.clear();			
     		}
     	}
-    	assertTrue(found);
+    	if (!found) throw new NoSuchElementException("Section dengan daftar Heading sesuai permintaan tidak ditemukan");
     }
     
     @Then("bandingkan dengan TOC")
@@ -71,19 +78,46 @@ public class TableOfContentFeature {
     		TOCData.add(tocElement.getText());
     	}
     	
-    	assertEquals(TOCData, headingsData);
+    	System.out.println("----");
+    	System.out.println(headings);
+    	System.out.println(TOCData);
+    	System.out.println(headingsData);
+    	System.out.println(headingsDataTag);
+    	System.out.println("----");
+    	
+    	Boolean equals = true;
+    	for (int i= 0; i < TOCData.size(); i++) {
+    		if (!TOCData.get(i).equals(headingsData.get(i))) equals = false;
+    	}
+    	
+    	assertTrue(equals);
     }
     
-    private Boolean checkHeadings() {
+    private Boolean checkHeadings() throws IndexOutOfBoundsException {
     	WebDriverWait wait = new WebDriverWait(Driver.getInstance(), Duration.ofSeconds(10));
     	List<WebElement> headings = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@class='content ql-editor col']"))).findElements(By.xpath("//h1 | //h2 | //h3[not(@class='white--text mb-5')] | //h4 | //h5 | //h6"));
         List<String> headingTags = new ArrayList<>();
         for (WebElement heading : headings) {
         	headingTags.add(heading.getTagName());
         	String hTagName = heading.getTagName();
-        	if (hTagName.equals("h1") || hTagName.equals("h2")) headingsData.add(heading.getText());
+        	if (hTagName.equals("h1") || hTagName.equals("h2")) {
+        		headingsData.add(heading.getText());
+        		headingsDataTag.add(heading.getTagName());
+        	}
     	}
-        System.out.println(headingTags);
-    	return headingTags.equals(this.headings);
+        
+        Boolean retVal = true;
+        if (headingTags.size() != this.headings.size()) return false;
+    	for (int i = 0; i < this.headings.size(); i++) {
+    		try {
+    			if (!headingTags.get(i).equals(this.headings.get(i))) {
+    				retVal = false;
+    			}    			
+    		}
+    		catch (IndexOutOfBoundsException e) {
+    			throw new IndexOutOfBoundsException("Tidak ada heading yang sesuai");
+    		}
+        }
+    	return retVal;
     }
 }

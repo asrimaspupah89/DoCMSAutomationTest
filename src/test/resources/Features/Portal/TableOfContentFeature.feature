@@ -4,7 +4,7 @@
 @PortalTableOfContentFeature
 Feature: feature to test table of content functionality
 
-	@MyTest
+	@ValidScenario
   Scenario: Daftar konten pada section yang tampil yang bisa dilihat pada sisi kanan. (hanya visible di tampilan desktop).
     Given browser terbuka
     Then buka portal dokumentasi
@@ -18,7 +18,7 @@ Feature: feature to test table of content functionality
   	| h1, h2			|
   	| h2					|
   
-  @MyTest
+  @InvalidScenario
   Scenario: Daftar konten pada section yang tampil yang bisa dilihat pada sisi kanan. (hanya visible di tampilan desktop).
     Given browser terbuka
     Then buka portal dokumentasi
