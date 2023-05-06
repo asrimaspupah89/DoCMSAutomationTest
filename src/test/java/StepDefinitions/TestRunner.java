@@ -16,6 +16,7 @@ import io.cucumber.junit.CucumberOptions;
 				"CreateVersion",
 				"DeleteVersion",
 				"Portal",
+				"ManageContent"
 			}, // path of step definition file
 		monochrome = true,
 		plugin = {"pretty", "html:target/reports/cucumber.html", 

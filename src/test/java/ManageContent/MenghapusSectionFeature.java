@@ -8,6 +8,7 @@ import java.util.NoSuchElementException;
 import org.openqa.selenium.TimeoutException;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -21,15 +22,18 @@ public class MenghapusSectionFeature {
 	
 	private WebElement removableSection = null;
 	private String removableSectionText = "";
-	
+	private JavascriptExecutor js = (JavascriptExecutor) Driver.getInstance();
+		
 	@When("klik tombol manage content")
 	public void klik_tombol_manage_content() {
-		Driver.getInstance().findElement(By.xpath("//*[@id=\"v-step-3\"]")).click();
+		WebDriverWait wait = new WebDriverWait(Driver.getInstance(), Duration.ofSeconds(10));
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='v-step-3 menu-item-3']"))).click();
 	}
 	
 	@Then("klik tab manage structure")
 	public void klik_tab_manage_structure() {
-		Driver.getInstance().findElement(By.xpath("//*[@id=\"v-step-manage-3\"]")).click();
+		WebDriverWait wait = new WebDriverWait(Driver.getInstance(), Duration.ofSeconds(10));
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='v-step-manage-3']"))).click();
 	}
 		
 	@And("klik dropdown versi")
@@ -55,9 +59,13 @@ public class MenghapusSectionFeature {
 	
 	@When("list yang memiliki satu section ditemukan")
 	public void list_yang_memiliki_satu_section_ditemukan() {
-		List<WebElement> elements = Driver.getInstance().findElements(By.xpath("//div[@class='v-list-group__header v-list-item v-list-item--link theme--dark']"));
+		List<WebElement> elements = Driver.getInstance().findElements(By.xpath("//div[@class='v-list-group']/div[@class='v-list-group__header v-list-item v-list-item--link theme--dark']"));
 		for (WebElement e : elements) {
-			e.click();
+			System.out.println(e.getText());
+			
+			this.js.executeScript("arguments[0].scrollIntoView();", e);
+			WebDriverWait wait = new WebDriverWait(Driver.getInstance(), Duration.ofSeconds(10));
+			wait.until(ExpectedConditions.elementToBeClickable(e)).click();
 		    List<WebElement> childElements = e.findElements(By.xpath("//div[@class='v-list-group v-list-group--active primary--text']/div[@class='v-list-group__items']/div[@class='v-list-item theme--dark']"));
 			if (childElements.size() == 1) {
 				removableSection = childElements.get(0);
