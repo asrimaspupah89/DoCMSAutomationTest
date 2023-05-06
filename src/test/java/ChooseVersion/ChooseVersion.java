@@ -14,7 +14,7 @@
  * Total TC : 2
  */
 
-package StepDefinitions;
+package ChooseVersion;
 
 import java.time.Duration;
 
@@ -27,7 +27,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 
-public class ChangeVersion {
+public class ChooseVersion {
 
 	WebDriver driver = null;
 	
