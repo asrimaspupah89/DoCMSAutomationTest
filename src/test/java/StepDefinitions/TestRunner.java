@@ -12,7 +12,9 @@ import io.cucumber.junit.CucumberOptions;
 				"StepDefinitions", 
 				"Login", 
 				"Chapter", 
-				"Register"
+				"Register",
+				"CreateVersion",
+				"DeleteVersion"
 			}, // path of step definition file
 		monochrome = true,
 		plugin = {"pretty", "html:target/reports/cucumber.html", 

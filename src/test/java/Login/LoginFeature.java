@@ -41,7 +41,8 @@ public class LoginFeature {
 	
 	@Then("user diarahkan ke home page")
 	public void user_diarahkan_ke_home_page() {
-		Driver.getInstance().findElement(By.xpath("//*[@id=\"app\"]/div/div[1]/header/div/div[1]/img")).isDisplayed();
+//		Driver.getInstance().findElement(By.xpath("//*[@id=\"app\"]/div/div[1]/header/div/div[1]/img")).isDisplayed();
+		Driver.getInstance().findElement(By.className("logo")).isDisplayed();
 	}
 	
 	/*
