@@ -27,7 +27,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 
-public class FindSection {
+public class ManageSection {
 
 	WebDriver driver = null;
 	
@@ -47,14 +47,16 @@ public class FindSection {
 		driver.navigate().to("http://103.172.204.236:8080");
 	}
 	
-	// TC 1 : Mendapatkan daftar section yang dicari
+	// TC 1 :
 	@When("user find section")
 	public void user_find_section() {
-		driver.findElement(By.xpath("//*[@id="search-bar"]")).sendKeys("Download");
+		driver.findElement(By.xpath("//*[@id=\"search-bar\"]")).click();
+		driver.findElement(By.xpath("/html/body/div/div/div[3]/div/div/div[1]/input")).sendKeys("Download");
+
 	}
 
 /**
- * SKENARIO KEDUA : TC2 : Mendapatkan daftar section yang kosong
+ * SKENARIO KEDUA : TC2
  * @When("user find no one section")
 	public void user_find_no_one_section() 
 		driver.findElement(By.xpath("//*[@id="search-bar"]")).sendKeys("Halaman");
