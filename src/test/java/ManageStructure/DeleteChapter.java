@@ -1,4 +1,4 @@
-package StepDefinitions;
+package ManageStructure;
 
 import java.time.Duration;
 
