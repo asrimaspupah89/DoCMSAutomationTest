@@ -43,7 +43,8 @@ public class DeleteChapter {
 	public void user_clicks_on_manage_content() {
 		driver.findElement(By.xpath("//*[@id=\"v-step-3 menu-item-3\"]")).click();
 		driver.findElement(By.xpath("//*[@id=\"v-step-88d83ff6\"]/div[2]/button[1]")).click();
-//		driver.findElement(By.xpath("//*[@id=\"v-step-88d83ff6\"]/div[2]/button[1]")).click();
+		driver.findElement(By.xpath("//*[@id=\"v-step-88d83ff6\"]/div[2]/button[1]")).click();
+		
 		
 	}
 	
@@ -51,7 +52,7 @@ public class DeleteChapter {
 	public void user_clicks_on_manage_structure_bar() {
 		driver.findElement(By.xpath("//*[@id=\"v-step-manage-3\"]")).click();
 		driver.findElement(By.xpath("//*[@id=\"app\"]/div/div[1]/main/div/div/div[2]/div[2]/div/div[2]/div/div[1]/div[1]/div[1]/div/div/div[1]/div[1]")).click();
-		driver.findElement(By.xpath("//*[@id=\"list-item-327-17\"]")).click();
+		driver.findElement(By.xpath("//*[@id=\"list-item-300-17\"]/div")).click();	
 	}
 	
 	@Then ("user clicks delete button on chapter list")
@@ -59,4 +60,3 @@ public class DeleteChapter {
 		driver.findElement(By.xpath("//*[@id=\"v-step-manage-6\"]/div[1]/div/div[2]/button[2]/span")).click();
 	}
 }
-	
