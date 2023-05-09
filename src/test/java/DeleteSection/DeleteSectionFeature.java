@@ -16,11 +16,11 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class DeleteSectionFeature {
-	@And("terdapat versi kosong dengan nama {word}")
-	public void terdapat_versi_kosong_dengan_nama(String versionName) {
+	@And("terdapat section kosong dengan nama {word}")
+	public void terdapat_section_kosong_dengan_nama(String sectionName) {
 		CreateVersionFeature initialstep = new CreateVersionFeature();
 		initialstep.user_menekan_tombol_create_version();
-		initialstep.menginputkan_nama_versi(versionName);
+		initialstep.menginputkan_nama_versi(sectionName);
 		initialstep.menekan_tombol_create();
 		initialstep.pesan_berhasil_membuat_versi_baru_tampil();
 	}

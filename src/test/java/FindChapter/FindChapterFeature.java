@@ -16,11 +16,11 @@ import io.cucumber.java.en.When;
 import Login.LoginFeature;
 
 public class FindChapterFeature {
-	@Given("user berada pada halaman manage chapter")
-	public void user_berada_pada_halaman_manage_chapter() {
+	@Given("user berada pada halaman chapter")
+	public void user_berada_pada_halaman_chapter() {
 		Driver.getInstance().manage().window().maximize();
 		LoginFeature initialstep = new LoginFeature();
-		initialstep.user_berada_di_home_page("mfauzirh", "fauzicakepgituloh");
+		initialstep.user_berada_di_home_page("Annakrnt", "Annakrnt25");
 		
 		System.out.println("mulai click link button");
 		// Mengarahkan ke halaman manage chapter
@@ -28,19 +28,11 @@ public class FindChapterFeature {
 		button.click();
 	}
 	
-	@When("user menekan kolom find chapter")
-	public void user_menekan_kolom_find_chapter() {
-		WebElement button = Driver.getInstance().findElement(By.id("v-step-manage-2"));
-		
-		JavascriptExecutor js = (JavascriptExecutor) Driver.getInstance();
-		js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
-		js.executeScript("arguments[0].click();", button);
-	}
-	
-	@And("menginputkan keyword {word}")
-	public void menginputkan_keyword(String chapterName) {
-		WebElement chapterNameInput = Driver.getInstance().findElement(By.id("v-step-chapter-1"));
-		chapterNameInput.sendKeys(chapterName);
+	@When("user menekan kolom find chapter {word}")
+	public void user_menekan_kolom_find_chapter(String keyword) {
+		WebElement button = Driver.getInstance().findElement(By.xpath("//*[@id=\"v-step-chapter-1\"]"));
+		button.click();
+		button.sendKeys(keyword);
 	}
 	
 	@Then("system show chapter")
