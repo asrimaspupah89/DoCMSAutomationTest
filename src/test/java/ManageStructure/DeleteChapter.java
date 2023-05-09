@@ -44,8 +44,6 @@ public class DeleteChapter {
 		driver.findElement(By.xpath("//*[@id=\"v-step-3 menu-item-3\"]")).click();
 		driver.findElement(By.xpath("//*[@id=\"v-step-88d83ff6\"]/div[2]/button[1]")).click();
 		driver.findElement(By.xpath("//*[@id=\"v-step-88d83ff6\"]/div[2]/button[1]")).click();
-		
-		
 	}
 	
 	@And ("user clicks on manage structure bar")
