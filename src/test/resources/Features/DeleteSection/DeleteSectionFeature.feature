@@ -4,16 +4,13 @@
 Feature: feature untuk menguji fungsionalitas penghapusan section 
 
 	@ValidScenario
-	Scenario: Menghapus section kosong
-	Given user berada pada halaman manage section
-	And terdapat section kosong dengan nama <sectionName>
+	Scenario: Menghapus section 
+	Given user berada pada halaman section
 	When user menekan tombol delete pada section dengan nama <sectionName>
 	Then pesan berhasil menghapus versi tampil
 	
 		Examples: 
-		| sectionName |
-		| paw2.0      |
+		| sectionName 								|
+		| select - ver na select      |
 	
 	
-	xpath skip tour
-	//*[@id="v-step-13c4820d"]/div[2]/button[1]
