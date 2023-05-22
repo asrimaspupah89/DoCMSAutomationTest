@@ -38,7 +38,7 @@ public class FindChapterFeature {
 	@Then("system show chapter")
 	public void system_show_chapter() {
 		try {
-			WebElement successMessage = Driver.getInstance().findElement(By.xpath("//*[@id=\"v-step-chapter-2\"]/div/table/tr/td[1]/p"));
+			WebElement successMessage = Driver.getInstance().findElement(By.xpath("//*[@id=\"v-step-chapter-2\"]/div/div"));
 			
 			// Success if message not displayed
 			Assert.assertTrue(!successMessage.isDisplayed());
@@ -51,7 +51,7 @@ public class FindChapterFeature {
 	@Then("system show message No result found")
 	public void system_show_message_No_result_found() {
 		try {
-			WebElement successMessage = Driver.getInstance().findElement(By.xpath("//*[@id=\"v-step-chapter-2\"]/div/div/span"));
+			WebElement successMessage = Driver.getInstance().findElement(By.xpath("//*[@id=\"v-step-chapter-2\"]/div/table/tr/td[1]/p"));
 			
 			// Success if message not displayed
 			Assert.assertTrue(!successMessage.isDisplayed());

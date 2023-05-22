@@ -10,17 +10,15 @@ Feature: feature to test find chapter funcionality
     When user menekan kolom find chapter <keyword>
     Then system show chapter
 
-
     Examples: 
-      | keyword       |
-      | Chapter Anna  |
+      | keyword   			|
+      | chapter012	    |
       
   @InvalidScenario
   Scenario: check find chapter is unsuccessful with keyword not available in database
     Given user berada pada halaman chapter
     When user menekan kolom find chapter <keyword>
     Then system show message No result found
-
 
     Examples: 
       | keyword    |
@@ -32,8 +30,6 @@ Feature: feature to test find chapter funcionality
     When user menekan kolom find chapter <keyword>
     Then system show message No result found 
     
-
-
     Examples: 
       | keyword    |
       | Annakrnt  |

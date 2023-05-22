@@ -6,11 +6,10 @@ Feature: feature untuk menguji fungsionalitas penghapusan section
 	@ValidScenario
 	Scenario: Menghapus section 
 	Given user berada pada halaman section
-	When user menekan tombol delete pada section dengan nama <sectionName>
-	Then pesan berhasil menghapus versi tampil
+	When user menekan tombol delete pada section dengan nama <keyword>
 	
 		Examples: 
-		| sectionName 								|
-		| select - ver na select      |
+		| keyword 				|
+		| inisectiona     |
 	
 	
